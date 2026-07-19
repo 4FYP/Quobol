@@ -146,7 +146,7 @@ export default function Hero({ ready }: Props) {
     >
       <ParticleField scrollY={scrollY} />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-5 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+      <div className="relative mx-auto grid w-full max-w-6xl gap-12 px-5 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 24 }}

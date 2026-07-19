@@ -20,14 +20,117 @@
     scroll-behavior: smooth;
   }
 
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
   body {
     margin: 0;
     min-height: 100vh;
     background: var(--color-ink);
     color: var(--color-mist);
     font-family: var(--font-body);
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* Keep horizontal overflow off body - it breaks position:fixed after scroll on mobile */
+  #root {
+    overflow-x: clip;
+  }
+
+  /* Full-screen mobile nav - lives on document.body via portal */
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100dvh;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    background: #0f1c22;
+    color: #f0f4f5;
+  }
+
+  .mobile-nav-bar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid rgba(53, 230, 214, 0.1);
+    background: #0f1c22;
+  }
+
+  .mobile-nav-close {
+    display: inline-flex;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(53, 230, 214, 0.2);
+    color: #f0f4f5;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .mobile-nav-links {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.5rem 1.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .mobile-nav-label {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #35e6d6;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.5rem;
+    color: #a8b5ba;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .mobile-nav-link--lg {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    color: #f0f4f5;
+  }
+
+  .mobile-nav-link:active {
+    background: rgba(53, 230, 214, 0.1);
+    color: #35e6d6;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    margin: 1rem 0;
+    background: rgba(53, 230, 214, 0.1);
+  }
+
+  .mobile-nav-cta {
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-nav-overlay {
+      display: none !important;
+    }
   }
 
   ::selection {

@@ -41,7 +41,7 @@ export default function Layout() {
         </a>
         <Navbar />
         <CursorGlow />
-        <main id="main">
+        <main id="main" className="relative z-0">
           <Outlet context={{ ready }} />
         </main>
         <Footer />
