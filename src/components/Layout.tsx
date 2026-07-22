@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import CursorGlow from './CursorGlow'
 import Preloader from './Preloader'
+import JsonLd from './JsonLd'
 
 export default function Layout() {
   const [ready, setReady] = useState(() => sessionStorage.getItem('quobol-loaded') === '1')
@@ -27,6 +28,7 @@ export default function Layout() {
 
   return (
     <>
+      <JsonLd />
       {!ready && <Preloader onComplete={handleReady} />}
       <div
         className={`min-h-screen bg-ink transition-opacity duration-700 ${

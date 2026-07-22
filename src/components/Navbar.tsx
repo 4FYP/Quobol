@@ -93,7 +93,7 @@ export default function Navbar() {
     setServicesOpen(false)
   }, [location.pathname])
 
-  // Lock page scroll on #root only — never on body.
+  // Lock page scroll on #root only - never on body.
   // Portaled menu lives on body as a sibling of #root, so it stays full-viewport.
   useEffect(() => {
     if (!open) return

@@ -10,6 +10,40 @@ function IconLinkedIn({ size = 18 }: { size?: number }) {
   )
 }
 
+function IconInstagram({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.12.14 4.59 1.62 4.73 4.73.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.14 3.11-1.61 4.59-4.73 4.73-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.12-.14-4.59-1.62-4.73-4.73C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.37 4.03 3.84 2.55 6.96 2.41 8.23 2.35 8.61 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z" />
+    </svg>
+  )
+}
+
+function IconFacebook({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.95h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z" />
+    </svg>
+  )
+}
+
+function IconTikTok({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.76 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.82.12v-3.4a6.21 6.21 0 0 0-.82-.06A6.33 6.33 0 0 0 3.16 15.3a6.33 6.33 0 0 0 6.33 6.33 6.33 6.33 0 0 0 6.33-6.33V9.29a8.16 8.16 0 0 0 4.77 1.52V7.36a4.85 4.85 0 0 1-1-.67z" />
+    </svg>
+  )
+}
+
+const socialClass =
+  'flex h-10 w-10 items-center justify-center rounded-full border border-cyan/15 text-mist-muted transition-all duration-300 hover:scale-110 hover:border-cyan/50 hover:text-cyan hover:shadow-[0_0_18px_rgba(53,230,214,0.35)]'
+
+const socials = [
+  { href: CONTACT.linkedin, label: 'Quobol on LinkedIn', Icon: IconLinkedIn },
+  { href: CONTACT.instagram, label: 'Quobol on Instagram', Icon: IconInstagram },
+  { href: CONTACT.facebook, label: 'Quobol on Facebook', Icon: IconFacebook },
+  { href: CONTACT.tiktok, label: 'Quobol on TikTok', Icon: IconTikTok },
+]
+
 export default function Footer() {
   return (
     <footer className="border-t border-cyan/10 bg-ink-deep">
@@ -21,15 +55,18 @@ export default function Footer() {
             every layer of your digital ecosystem.
           </p>
           <div className="mt-6 flex gap-3">
-            <a
-              href={CONTACT.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Quobol on LinkedIn"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-cyan/15 text-mist-muted transition-all duration-300 hover:scale-110 hover:border-cyan/50 hover:text-cyan hover:shadow-[0_0_18px_rgba(53,230,214,0.35)]"
-            >
-              <IconLinkedIn />
-            </a>
+            {socials.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                className={socialClass}
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -104,6 +141,36 @@ export default function Footer() {
                 className="underline-draw text-sm text-mist-muted hover:text-cyan"
               >
                 LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                href={CONTACT.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="underline-draw text-sm text-mist-muted hover:text-cyan"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href={CONTACT.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="underline-draw text-sm text-mist-muted hover:text-cyan"
+              >
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a
+                href={CONTACT.tiktok}
+                target="_blank"
+                rel="noreferrer"
+                className="underline-draw text-sm text-mist-muted hover:text-cyan"
+              >
+                TikTok
               </a>
             </li>
           </ul>

@@ -1,24 +1,34 @@
 import ScrollReveal from '../components/ScrollReveal'
 
 const tech = [
+  'Salesforce',
+  'HubSpot',
+  'Dynamics 365',
+  'Zoho CRM',
+  'Apex',
+  'Lightning',
   'React',
   'TypeScript',
+  'Next.js',
   'Node.js',
   'Python',
+  'Flutter',
   'AWS',
   'Azure',
+  'DigitalOcean',
   'Kubernetes',
   'Docker',
+  'Terraform',
   'PostgreSQL',
   'MongoDB',
+  'Redis',
+  'GraphQL',
   'TensorFlow',
   'LangChain',
-  'Terraform',
+  'UiPath',
+  'Power Automate',
   'GitHub Actions',
-  'Flutter',
-  'Next.js',
-  'GraphQL',
-  'Redis',
+  'Snowflake',
 ]
 
 export default function TechStack() {
@@ -35,8 +45,12 @@ export default function TechStack() {
             id="tech-heading"
             className="mt-3 font-display text-3xl font-semibold tracking-tight text-mist sm:text-4xl"
           >
-            Stacks we ship with every day.
+            Salesforce, CRM, cloud, and modern engineering stacks.
           </h2>
+          <p className="mt-4 max-w-2xl text-mist-muted">
+            From Salesforce and HubSpot to React, Python, AWS, and RPA platforms - Quobol delivers
+            with the tools enterprises already trust.
+          </p>
         </ScrollReveal>
       </div>
 

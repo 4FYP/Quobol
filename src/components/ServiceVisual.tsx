@@ -46,6 +46,68 @@ export default function ServiceVisual({ type }: { type: ServiceIcon }) {
     )
   }
 
+  if (type === 'crm') {
+    const hubs = [
+      { label: 'Salesforce', x: 50, y: 18 },
+      { label: 'HubSpot', x: 82, y: 42 },
+      { label: 'Dynamics', x: 72, y: 78 },
+      { label: 'Custom', x: 28, y: 78 },
+      { label: 'Zoho', x: 18, y: 42 },
+    ]
+    return (
+      <div className="relative mx-auto aspect-square w-full max-w-sm">
+        <motion.div
+          className="absolute inset-[12%] rounded-full border border-cyan/20"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+        />
+        <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" aria-hidden>
+          {hubs.map((h) => (
+            <motion.line
+              key={h.label}
+              x1="50"
+              y1="50"
+              x2={h.x}
+              y2={h.y}
+              stroke="#35e6d6"
+              strokeWidth="0.4"
+              strokeOpacity="0.35"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: [0.2, 1, 0.2], strokeOpacity: [0.2, 0.55, 0.2] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          ))}
+        </svg>
+        <motion.div
+          className="absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-2xl border border-cyan/40 bg-ink-elevated text-center shadow-[0_0_32px_rgba(53,230,214,0.3)]"
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 2.8, repeat: Infinity }}
+        >
+          <span className="font-display text-[0.65rem] font-bold tracking-wide text-cyan">CRM</span>
+          <span className="text-[0.55rem] text-mist-muted">Core</span>
+        </motion.div>
+        {hubs.map((h, i) => (
+          <motion.div
+            key={h.label}
+            className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan/30 bg-ink-deep px-2 py-1.5 text-[0.58rem] font-semibold text-cyan"
+            style={{ left: `${h.x}%`, top: `${h.y}%` }}
+            animate={{ y: [0, -4, 0], boxShadow: ['0 0 0 rgba(53,230,214,0)', '0 0 14px rgba(53,230,214,0.35)', '0 0 0 rgba(53,230,214,0)'] }}
+            transition={{ duration: 2.4, delay: i * 0.25, repeat: Infinity }}
+          >
+            {h.label}
+          </motion.div>
+        ))}
+        <motion.div
+          className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full border border-cyan/20 bg-cyan/10 px-3 py-1 text-[0.6rem] text-mist-muted"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          Leads · Accounts · Cases · Pipeline
+        </motion.div>
+      </div>
+    )
+  }
+
   if (type === 'web') {
     return (
       <div className="relative mx-auto flex h-72 w-full max-w-sm items-end justify-center gap-4">

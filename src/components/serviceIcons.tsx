@@ -1,5 +1,6 @@
 import {
   Bot,
+  Building2,
   Cloud,
   Code2,
   Database,
@@ -14,6 +15,7 @@ import type { ServiceIcon } from '../data/services'
 
 const map: Record<ServiceIcon, LucideIcon> = {
   ai: Bot,
+  crm: Building2,
   web: Smartphone,
   rpa: Workflow,
   cloud: Cloud,

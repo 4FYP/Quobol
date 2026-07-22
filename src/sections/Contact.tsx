@@ -238,6 +238,45 @@ export default function Contact({ standalone = false }: ContactProps) {
                 </dd>
               </div>
               <div>
+                <dt className="text-mist-faint">Instagram</dt>
+                <dd>
+                  <a
+                    href={CONTACT.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline-draw text-cyan"
+                  >
+                    @its.quobol
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-mist-faint">Facebook</dt>
+                <dd>
+                  <a
+                    href={CONTACT.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline-draw text-cyan"
+                  >
+                    Quobol on Facebook
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-mist-faint">TikTok</dt>
+                <dd>
+                  <a
+                    href={CONTACT.tiktok}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline-draw text-cyan"
+                  >
+                    @quobol1
+                  </a>
+                </dd>
+              </div>
+              <div>
                 <dt className="text-mist-faint">Focus</dt>
                 <dd className="text-mist-muted">{CONTACT.tagline}</dd>
               </div>

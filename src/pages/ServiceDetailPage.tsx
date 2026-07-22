@@ -4,8 +4,9 @@ import { ArrowRight, Check } from 'lucide-react'
 import ScrollReveal from '../components/ScrollReveal'
 import ConsultButton from '../components/ConsultButton'
 import ServiceVisual from '../components/ServiceVisual'
+import Seo from '../components/Seo'
 import { getServiceIcon } from '../components/serviceIcons'
-import { getService, services } from '../data/services'
+import { CONTACT, getService, services } from '../data/services'
 
 export default function ServiceDetailPage() {
   const { slug } = useParams()
@@ -18,6 +19,13 @@ export default function ServiceDetailPage() {
 
   return (
     <article className="pt-28">
+      <Seo
+        title={service.seoTitle}
+        description={service.seoDescription}
+        path={`/services/${service.slug}`}
+        type="service"
+      />
+
       {/* Hero */}
       <section className="relative overflow-hidden pb-16 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 circuit-grid opacity-25" aria-hidden />
@@ -99,6 +107,33 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </section>
+
+      {service.platforms && service.platforms.length > 0 ? (
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-5 sm:px-6">
+            <ScrollReveal>
+              <p className="font-display text-sm font-semibold tracking-[0.2em] text-cyan uppercase">
+                Platforms and tech
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-semibold text-mist">
+                Technologies we implement and integrate.
+              </h2>
+            </ScrollReveal>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {service.platforms.map((p, i) => (
+                <ScrollReveal key={p} delay={i * 0.03}>
+                  <motion.span
+                    className="glass inline-flex rounded-full px-4 py-2 font-display text-sm text-mist-muted"
+                    whileHover={{ scale: 1.05, color: '#35e6d6' }}
+                  >
+                    {p}
+                  </motion.span>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* How it works */}
       <section className="py-20 sm:py-24">
@@ -202,10 +237,10 @@ export default function ServiceDetailPage() {
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <ConsultButton />
               <a
-                href="mailto:Quobol25@gmail.com"
+                href={`mailto:${CONTACT.email}`}
                 className="inline-flex items-center justify-center rounded-full border border-cyan/30 px-6 py-3 font-display text-sm font-semibold text-mist transition-all hover:border-cyan"
               >
-                Quobol25@gmail.com
+                {CONTACT.email}
               </a>
             </div>
           </ScrollReveal>
