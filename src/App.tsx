@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import ServicesIndexPage from './pages/ServicesIndexPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 import ContactPage from './pages/ContactPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="services" element={<ServicesIndexPage />} />
           <Route path="services/:slug" element={<ServiceDetailPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
